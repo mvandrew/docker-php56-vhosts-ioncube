@@ -6,3 +6,4 @@
 !/www/index.html
 
 /apache2/sites-available/000-default.conf
+/apache2/log

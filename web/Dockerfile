@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
         mc \
         bzip2 \
+    && a2enmod rewrite \
     && docker-php-ext-install -j$(nproc) mbstring mysqli pdo_mysql zip \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 

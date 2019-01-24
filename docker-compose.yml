@@ -9,6 +9,7 @@ services:
     volumes:
       - ${WWW_PATH_HOST}:${WWW_PATH_CONTAINER}
       - ${APACHE_SITES_HOST}:${APACHE_SITES_CONTAINER}
+      - ${APACHE_LOG_HOST}:${APACHE_LOG_CONTAINER}
     ports:
       - ${WEB_PORT_HOST}:80
     working_dir: ${WWW_PATH_CONTAINER}
