@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  web:
+    build: ./web
+    environment:
+      - APACHE_RUN_USER=#1000
+    volumes:
+      - ${WWW_PATH_HOST}:${WWW_PATH_CONTAINER}
+      - ${APACHE_SITES_HOST}:${APACHE_SITES_CONTAINER}
+    ports:
+      - ${WEB_PORT_HOST}:80
+    working_dir: ${WWW_PATH_CONTAINER}
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ${DB_PATH_HOST}:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - ${ADMINER_PORT_HOST}:8080

@@ -1,0 +1,8 @@
+.env
+
+/databases
+
+/www/*
+!/www/index.html
+
+/apache2/sites-available/000-default.conf
