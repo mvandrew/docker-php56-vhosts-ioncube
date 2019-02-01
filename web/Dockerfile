@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y \
         mc \
         bzip2 \
         libpng-dev \
+        libjpeg-dev \
+        libgif-dev \
     && a2enmod rewrite \
+    && docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) mbstring mysqli pdo_mysql zip gd \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
