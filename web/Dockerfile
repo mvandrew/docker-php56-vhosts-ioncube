@@ -1,13 +1,16 @@
+#
+# Used to support old Web projects, such as OpenCart + Lights Shop.
+#
+
 FROM php:5.6-apache
 
-MAINTAINER Andrey Mishchenko <info@msav.ru>
+LABEL maintainer "Andrey Mishchenko <info@msav.ru>"
 
 RUN apt-get update && apt-get install -y \
         curl \
         wget \
         git \
         zlib1g-dev \
-        mc \
         bzip2 \
         libpng-dev \
         libjpeg-dev \
@@ -26,3 +29,5 @@ RUN tar xvjfC /tmp/ioncube_loaders_lin_x86-64.tar.bz2 /tmp/ \
     && rm -rf /tmp/ioncube
 
 RUN /etc/init.d/apache2 restart
+
+EXPOSE 80
